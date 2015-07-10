@@ -11,7 +11,7 @@ var bodyParser     = require('body-parser');
 var cookieParser   = require('cookie-parser');
 var session        = require('express-session');
 var flash          = require('connect-flash');
-var debug          = require('debug')('app:main');
+var debug          = require('debug')('api:clubs');
 var moment         = require('moment');
 
 var config         = require('./config.json');
