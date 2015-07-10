@@ -1,0 +1,10 @@
+{
+	"mongodbURL"       : "mongodb://localhost/mobile_api",
+	"auth" : {
+		"googleClientID"    : "keyboard-cat",
+		"googleClientSecret": "keyboard-dog",
+		"callbackURL" : "http://YOUR_DOMAIN/api/message/login/callback",
+		"googleRealm"       : "https://edu.esiee.fr/"		
+	},
+	"sessionSecret" : "keyboard-fish"
+}

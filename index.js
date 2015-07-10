@@ -15,8 +15,6 @@ var debug          = require('debug')('app:main');
 var moment         = require('moment');
 
 var config         = require('./config.json');
-var authConfig     = require('./auth.json');
-var secretConfig   = require('./secrets.json');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -24,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(session({
-	secret: secretConfig.sessionSecret
+	secret: config.sessionSecret
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -65,7 +63,7 @@ passport.deserializeUser(function(id, done) {
 	});
 });
 
-passport.use(new GoogleStrategy(authConfig,
+passport.use(new GoogleStrategy(config.auth,
 	function(token, refreshToken, profile, done) {
 		process.nextTick(function() {
 			User.findOne({'googleId': profile.id}, function(err, user) {
